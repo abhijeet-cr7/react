@@ -1,14 +1,16 @@
 function customRender(element , container){
     const domElement = document.createElement(element.type);
     domElement.innerHTML = element.children
+    console.log(element,container)
     for(prop in element.props){
         domElement.setAttribute(prop , element.props[prop])
     }
-    container.appendChild = domElement;
+    console.log(domElement, "domelement")
+    container.appendChild(domElement);
 }
 
 const reactElement = {
-    type : "h1",
+    type : "a",
     props : {
         href : "https://www.google.com",
         target : "_blank"
@@ -16,5 +18,5 @@ const reactElement = {
     children : "Click me"
 }
 
-const container = document.querySelector("#root");
+const container = document.getElementById("root");
 customRender(reactElement, container)
